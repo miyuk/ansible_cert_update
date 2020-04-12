@@ -1,0 +1,10 @@
+---
+- name: 証明書の更新
+  hosts: localhost
+  roles:
+    - letsencrypt_cloudflare
+  post_tasks:
+    - name: Playbook実施結果を保存
+      set_stats:
+        data:
+          update_cert_result: success

@@ -1,0 +1,11 @@
+---
+- name: BIG-IP証明書更新
+  hosts: bigip
+  gather_facts: no
+  roles:
+    - bigip_certificate
+  post_tasks:
+    - name: Playbook実施結果を保存
+      set_stats:
+        data:
+          deploy_cert_bigip_result: success

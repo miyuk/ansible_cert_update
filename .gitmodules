@@ -1,0 +1,12 @@
+[submodule "roles/bigip_certificate"]
+	path = roles/bigip_certificate
+	url = https://github.com/miyuk/ansible_bigip_certificate.git
+[submodule "roles/haproxy_certificate"]
+	path = roles/haproxy_certificate
+	url = https://github.com/miyuk/ansible_haproxy_certificate
+[submodule "roles/letsencrypt_cloudflare"]
+	path = roles/letsencrypt_cloudflare
+	url = https://github.com/miyuk/ansible_letsencrypt_cloudflare
+[submodule "roles/nginx_certificate"]
+	path = roles/nginx_certificate
+	url = https://github.com/miyuk/ansible_nginx_certificate

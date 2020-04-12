@@ -1,0 +1,5 @@
+---
+- import_playbook: update_cert.yml
+- import_playbook: deploy_cert_bigip.yml
+- import_playbook: deploy_cert_nginx.yml
+- import_playbook: deploy_cert_haproxy.yml

@@ -1,0 +1,19 @@
+---
+- name: Rocket.ChatへPlaybook実施結果をレポート
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: 実施結果を変数化
+      set_fact:
+        report_text: |
+          ・証明書更新: {{ update_cert_result | default('unknown') }}
+          ・BIG-IPへデプロイ: {{ depoy_cert_bigip_result | default('unknown') }}
+          ・NGINXへデプロイ: {{ deploy_cert_nginx_result | default('unknown') }}
+          ・HAPROXYへデプロイ: {{ deploy_cert_haproxy_result | default('unknown') }}
+
+    - name: Rocket.ChatへWebHook
+      uri:
+        url: "{{ rocketchat_webhook_url }}"
+        method: POST
+        body: "{{ { 'text': report_text } | to_json }}"
+        body_format: json
